@@ -86,7 +86,7 @@ RUN a2ensite 000-default.conf \
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 
-EXPOSE 22 80 9001 9002
+EXPOSE 22 80 8666 9001 9002
 #
 #
 #RUN chmod +x entrypoint.sh
