@@ -67,8 +67,9 @@ RUN a2ensite 000-default.conf \
 
     && curl -sL https://deb.nodesource.com/setup_5.x | bash - \
     && apt-get install -y nodejs \
-    && npm install -g jspm \
-    && npm install -g less
+    && npm install -g jspm --save-dev \
+    && npm install -g less \
+    && npm install -g webpack  --save-dev
 
 
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
