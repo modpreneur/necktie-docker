@@ -4,8 +4,7 @@ FROM modpreneur/apache-framework
 MAINTAINER Martin Kolek <kolek@modpreneur.com>
 
 
-RUN apt-get update && apt-get -y install \
-    nodejs \
+RUN apt-get update \
     && docker-php-ext-install pdo_pgsql
 
 # Install apcu, bcmath for rabbit, postfix, composer with plugin for paraller install, clean app folder, clean apache sites
