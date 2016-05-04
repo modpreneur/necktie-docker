@@ -4,9 +4,10 @@ FROM modpreneur/apache-framework
 MAINTAINER Martin Kolek <kolek@modpreneur.com>
 
 # Install php extesion pdo_pgsql, supervisor, apcu, bcmath for rabbit, postfix, composer with plugin for paraller install, clean app folder, clean apache sites
-RUN apt-get update \
+RUN apt-get update && apt-get -y install \
+    supervisor \
+    cron \
     && docker-php-ext-install pdo_pgsql \
-    && apt-get -y install supervisor \
     && echo "postfix postfix/main_mailer_type string Internet site" > preseed.txt \
     && echo "postfix postfix/mailname string modpreneur.com" >> preseed.txt \
     && debconf-set-selections preseed.txt \
