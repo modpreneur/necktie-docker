@@ -18,6 +18,7 @@ RUN apt-get update && apt-get -y install \
     && npm install -g webpack  --save-dev
 
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY docker/supervisor-manager.sh /opt/supervisor-manager.sh
 
 #postvix, apache, superviser, superviser
 EXPOSE 22 80 9001 9002
