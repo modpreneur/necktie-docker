@@ -1,13 +1,12 @@
-FROM modpreneur/apache-framework
+FROM modpreneur/apache-framework:0.5
 
 
 MAINTAINER Martin Kolek <kolek@modpreneur.com>
 
-# Install php extesion pdo_pgsql, supervisor, apcu, bcmath for rabbit, postfix, composer with plugin for paraller install, clean app folder, clean apache sites
+# Install supervisor, postfix, composer with plugin for paraller install, clean app folder, clean apache sites
 RUN apt-get update && apt-get -y install \
     supervisor \
     cron \
-    && docker-php-ext-install pdo_pgsql \
     && echo "postfix postfix/main_mailer_type string Internet site" > preseed.txt \
     && echo "postfix postfix/mailname string modpreneur.com" >> preseed.txt \
     && debconf-set-selections preseed.txt \
@@ -20,5 +19,4 @@ RUN apt-get update && apt-get -y install \
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/supervisor-manager.sh /opt/supervisor-manager.sh
 
-#postvix, apache, superviser, superviser
-EXPOSE 22 80 9001 9002
+RUN echo "modpreneur/necktie:0.4.7" >> /home/versions
