@@ -1,4 +1,4 @@
-FROM modpreneur/apache-framework:0.5
+FROM modpreneur/apache-framework:0.6
 
 
 MAINTAINER Martin Kolek <kolek@modpreneur.com>
@@ -14,9 +14,10 @@ RUN apt-get update && apt-get -y install \
     && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g less \
-    && npm install -g webpack  --save-dev
+    && npm install -g webpack  --save-dev \
+    && npm install -g uglifycss
 
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/supervisor-manager.sh /opt/supervisor-manager.sh
 
-RUN echo "modpreneur/necktie:0.4.7" >> /home/versions
+RUN echo "modpreneur/necktie:1.0" >> /home/versions
