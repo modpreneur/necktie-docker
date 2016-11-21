@@ -1,9 +1,9 @@
-FROM modpreneur/apache-framework:1.0.1
+FROM modpreneur/apache-framework:1.0.2
 
 
 MAINTAINER Martin Kolek <kolek@modpreneur.com>
 
-# Install supervisor, composer with plugin for paraller install, clean app folder, clean apache sites
+# Install supervisor and cron
 RUN apt-get update && apt-get -y install \
     supervisor \
     cron
@@ -11,4 +11,4 @@ RUN apt-get update && apt-get -y install \
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/supervisor-manager.sh /opt/supervisor-manager.sh
 
-RUN echo "modpreneur/necktie:1.0.7" >> /home/versions
+RUN echo "modpreneur/necktie:1.0.8" >> /home/versions
