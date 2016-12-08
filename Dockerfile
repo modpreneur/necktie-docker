@@ -1,4 +1,4 @@
-FROM modpreneur/apache-framework:1.0.2
+FROM modpreneur/apache-framework:1.0.3
 
 
 MAINTAINER Martin Kolek <kolek@modpreneur.com>
@@ -11,4 +11,4 @@ RUN apt-get update && apt-get -y install \
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/supervisor-manager.sh /opt/supervisor-manager.sh
 
-RUN echo "modpreneur/necktie:1.0.8" >> /home/versions
+RUN echo "modpreneur/necktie:1.0.9" >> /home/versions
